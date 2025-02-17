@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukkik's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #112240;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            border-bottom: 2px solid #64ffda;
+            padding-bottom: 10px;
+        }
+        .project ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project a {
+            color: #8892b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .project a:hover {
+            color: #64ffda;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #112240;
+        }
+        .project img {
+            width: 150px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Amornrat D. Howard's Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Web Fundamentals</h3>
+            <ul>
+                <li><a href="https://kukkikd.github.io/wdd130/wwr/index.html">HTML White Raffle Project</a></li>
+                <li><a href="https://kukkikd.github.io/wdd130/mysite/site-plan.html">RNH Site Plan</a></li>
+                <li><a href="https://kukkikd.github.io/wdd130/mysite/index.html">HTML RNH Project</a></li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Web Frontend Development</h3>
+            <ul>
+                <li><a href="https://kukkikd.github.io/wdd230/index.html">Mysite Project</a></li>
+                <li><a href="https://kukkikd.github.io/weddingkr/index.html">Wedding Invitation Page</a></li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Web App Development</h3>
+            <ul>
+                <li><a href="https://transcendent-choux-429da9.netlify.app/">Web App Project</a></li>
+                <li><a href="https://mealplannerwdd330.netlify.app/">Meal Planner App</a></li>
+                <li><a href="https://www.canva.com/design/DAGVBpZYkRg/E1hEGp2MymVBV77O3C0Hyw/view?utm_content=DAGVBpZYkRg&utm_campaign=designshare&utm_medium=link&utm_source=recording_view">Project Video Presentation</a></li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Backend Development</h3>
+            <p>The original website has expired <a href="https://cse340-st3g.onrender.com">Backend API Project</a>, but here are reference images of the project:</p>
+            <img src="images/Screenshot1.webp" alt="Backend Project Screenshot 1" class="thumbnail">
+            <img src="images/Screenshot2.webp" alt="Backend Project Screenshot 2" class="thumbnail">
+            <p>GitHub Repository: <a href="https://github.com/KukkikD/cse340/tree/main">View Source Code</a></p>
+        </div>
+    </section>
+    
+    <section id="resume">
+        <h2>Resume</h2>
+        <p><strong>Amornrat Dizon Howard</strong></p>
+        <p>Junior Programmer | Web Frontend & Content Developer | Marketing & Business Executive | Branding Consultant | Business Owner</p>
+        <p>With over a decade of experience in corporate positions, the hotel business, and office management, I have successfully navigated the dynamic world of marketing and business. I specialize in branding and have consulted on various product lines, driving the growth of substantial customer bases. My commitment to lifelong learning fuels my expertise.</p>
+        <p><a href="pdf/Amornrat D Howard.pdf">Download Resume (PDF)</a></p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: adeezon9@gmail.com</p>
+        <p>GitHub: <a href="https://github.com/KukkikD">github.com/KukkikD</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/amornratdizon">www.linkedin.com/in/amornratdizon</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Amornrat Dizon Howard (Kukkik) </p>
+    </footer>
+    <div class="modal" id="imageModal">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="">
+    </div>
+
+    <script>
+        document.querySelectorAll('.thumbnail').forEach(img => {
+            img.addEventListener('click', function() {
+                document.getElementById('modalImage').src = this.src;
+                document.getElementById('imageModal').style.display = 'flex';
+            });
+        });
+        
+        document.querySelector('.modal .close').addEventListener('click', function() {
+            document.getElementById('imageModal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
